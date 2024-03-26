@@ -4,9 +4,9 @@ services:
   app:
     user: "${USER_ID:-1000}"
     hostname: "${HOST_NAME:-emkademy}"
-    image: cybulde-template
+    image: jalajnlp-data
     platform: linux/amd64
-    container_name: cybulde-template-container
+    container_name: jalajnlp-data-container
     build:
       context: .
       dockerfile: ./docker/Dockerfile
@@ -16,16 +16,9 @@ services:
     volumes:
       - ./:/app/
       - ~/.config/gcloud/:/home/${USER_NAME:-kyuksel}/.config/gcloud
+      - ~/ssh:/home/${USER_NAME}/.ssh
     ports:
-      - 8080:8080
-
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
+      - 8888:8888
     ipc: host
     init: true
 
