@@ -1,2 +1,2 @@
-# cybulde-project-template
-A simple template for Cybulde project
+# ml-project-template
+A simple template for ml project
